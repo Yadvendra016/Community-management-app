@@ -65,8 +65,10 @@ h3{
 textarea{
     margin-top:5px;
     border-radius:10px;
+    outline: none;
 }
 
 input{
     border-radius:7px;
+    outline: none;
 }

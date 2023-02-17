@@ -13,7 +13,7 @@ mongoose.set('strictQuery', false);
 
 
 // passport authentication
-app.use(session({   // LEVEL 5
+app.use(session({   
     secret: "we are devRookies",
     resave: false,
     saveUninitialized: false
@@ -27,6 +27,7 @@ app.use(passport.session());
 mongoose.connect("mongodb://127.0.0.1:27017/upesDB",{useNewUrlParser: true});
 
 
+// register/login user schema
 const userSchema = new mongoose.Schema({ 
     name: {
         type: String,
@@ -66,6 +67,10 @@ app.use(express.static("public"));
 // home
 app.get('/', (req,res) =>{
   res.render('home');
+});
+
+app.get('/about', (req,res) =>{
+  res.render('about');
 });
 
 
