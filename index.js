@@ -2,6 +2,17 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
 import mongoose from 'mongoose';
+import http from 'http';
+// for socket.io
+import { Server } from 'socket.io'; 
+import formatMessage from './utils/messages.js';
+import {
+    userJoin,
+    getCurrentUser,
+    userLeave,
+    getRoomUsers,
+  } from './utils/users.js';
+
 // auathentication element of passport.js
 import session from 'express-session';
 import passport from 'passport';
@@ -10,6 +21,12 @@ import passportLocalMongoose from'passport-local-mongoose';
 
 const app = express();
 mongoose.set('strictQuery', false);
+
+// http connection
+const server = http.createServer(app);
+// socket.io connection
+const io = new Server(server);
+
 
 
 // passport authentication
@@ -73,6 +90,66 @@ app.get('/about', (req,res) =>{
   res.render('about');
 });
 
+app.get('/teamChat', (req,res) =>{
+  res.render('teamChat');
+});
+
+app.get('/teams', (req,res) =>{
+  res.render('teams');
+});
+
+
+io.on("connection", (socket) => {
+    console.log(io.of("/").adapter);
+    socket.on("joinRoom", ({ username, room }) => {
+      const user = userJoin(socket.id, username, room);
+  
+      socket.join(user.room);
+  
+      // Welcome current user
+      socket.emit("message", formatMessage(botName, "Welcome to ChatCord!"));
+  
+      // Broadcast when a user connects
+      socket.broadcast
+        .to(user.room)
+        .emit(
+          "message",
+          formatMessage(botName, `${user.username} has joined the chat`)
+        );
+  
+      // Send users and room info
+      io.to(user.room).emit("roomUsers", {
+        room: user.room,
+        users: getRoomUsers(user.room),
+      });
+    });
+  
+    // Listen for chatMessage
+    socket.on("chatMessage", (msg) => {
+      const user = getCurrentUser(socket.id);
+  
+      io.to(user.room).emit("message", formatMessage(user.username, msg));
+    });
+  
+    // Runs when client disconnects
+    socket.on("disconnect", () => {
+      const user = userLeave(socket.id);
+  
+      if (user) {
+        io.to(user.room).emit(
+          "message",
+          formatMessage(botName, `${user.username} has left the chat`)
+        );
+  
+        // Send users and room info
+        io.to(user.room).emit("roomUsers", {
+          room: user.room,
+          users: getRoomUsers(user.room),
+        });
+      }
+    });
+  });
+  
 
 // listen port 
-app.listen(3000, () => console.log("app is running at port 3000"));
+server.listen(3000, () => console.log("app is running at port 3000"));
