@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+
 body {
-    background-color: whitesmoke;
+    background-color: #03254c;
 }
-.upse-logo {
+.logo-container {
+    font-family: "Poppins";
+    display: flex;
+    justify-items: center;
+    color: #03254c;
+}
+
+
+.upes-logo {
     width: 40px;
-}
-.header-nav{
-    background-color: red;
+    margin-right: 20px;
 }
