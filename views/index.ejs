@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Leucos</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+
+  <body>
+    
+
+
+    <section id="chat">
+      <div class="container">
+        <header>
+          <div class="header-logo">
+            <!-- <img src="../static/img/logo.png" alt="" /> -->
+          </div>
+          <div class="header-text"><b>Teams</b></div>
+        </header>
+        <section class="section-container">
+          <form action="/chatroom" style="width: 400px; margin-top: 25px">
+            <div class="form-control">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="  Enter username..."
+                required
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-control">
+              <label for="room">Room</label>
+              <select name="room" id="room" required>
+                <option value="">Select a room</option>
+                <option value="General">General</option>
+                <option value="Games">Games</option>
+                <option value="Movies">Movies</option>
+                <option value="Music">Music</option>
+                <option value="Code">Code</option>
+                <option value="DSA">DSA</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">
+              <a href="/chatroom"> Join Chat</a>
+            </button>
+          </form>
+        </section>
+       
+      </div>
+    </section>
+
+    
+   
+  </body>
+</html>

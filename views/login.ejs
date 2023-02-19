@@ -1,37 +1,49 @@
-    <%- include('partials/header'); -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
 
-    <div class="navbar-container">
+    <!-- <div class="navbar-container">
         <div class="logo">
             <img src="/images/csi.png" alt="logo">
         </div>
         <div class="title">
             <h1>UPES-CSI</h1>
         </div>
-    </div>
-    <div class="main-container">
-        <div class="img">
-            <img src="/images/asset 2.png" alt="hero-image">
+    </div> -->
+    <div class="login-main-container">
+        <div>
+            <img src="/images/asset 2.png" alt="hero-image" class="login-img">
         </div>
-        <div class="main">
-            <div class="form">
-                <div class="heading">
+        <div class="login-main">
+            <div class="login-form">
+                <div class="login-heading">
                     <h3>Login</h3>
                 </div>
-                <div class="input-container">
-                    <div class="label">
+                <div class="login-input-container">
+                    <div class="login-label">
                         <label for="email">Email</label><br>
                         <label for="password">Password</label><br>
                     </div>
-                    <div class="input">
-                        <input type="email" name="email"><br>
-                        <input type="password"><br>
+                    <div class="login-input">
+                        <input class="login-email" type="email" name="email"><br>
+                        <input class="login-email" type="password"><br>
                      </div>
                 </div>   
-                <div class="btn">
+                <div class="login-btn">
                     Login
                 </div>
                 <div class="register">
-                    <p><a href="/registrationPage/index.html">Not yet Registred ?</a></p>
+                    <p><a href="/registration">Not yet Registred ?</a></p>
                 </div>
             </div>
         </div>

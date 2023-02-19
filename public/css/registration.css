@@ -4,13 +4,13 @@ body{
     background-color: #03254c;
 }
 
-img{
+.reg-img{
     margin: 0 20px;
     width:50px;
     height:50px;
 }
 
-.navbar-container{
+/* .navbar-container{
     font-family:"Poppins","sans-serif";
     display: flex;
     flex-direction: row;
@@ -19,26 +19,26 @@ img{
     color:#16227c;
     height: 4rem;
     align-items: center;
-}
+} */
 
-.heading{
+.reg-heading{
     color:#16227c;
     font-size:25px;
     margin:0;
 }
 
-.main-container{
+.reg-main-container{
     display:flex;
 }
 
-.main-container img{
+.reg-main-container img{
     width:500px;
     height:500px;
     margin:100px 0px 0px 220px ;
 }
 
 
-.main{
+.reg-main{
     position:absolute;
     left:60%;
     margin-top:80px;
@@ -49,7 +49,7 @@ img{
     border-radius: 10px;
 }
 
-.form{
+.reg-form{
     background-color: white;
     font-family:"Roboto","sans-serif";
     width:100%;
@@ -62,7 +62,7 @@ img{
     align-items: center;
 }
 
-.btn{
+.reg-btn{
     color:white;
     background-color: #1167b1;
     border: 1px solid white;
@@ -76,7 +76,7 @@ img{
     margin-top:20px;
 }
 
-.btn:hover{
+.reg-btn:hover{
 
     border:1px solid black;
     background-color: white;
@@ -90,18 +90,18 @@ input{
     border-radius: 5px;
 }
 
-.input-container{
+.reg-input-container{
     display:flex;
     flex-direction: row;
 }
 
-.label{
+.reg-label{
     display:flex;
     flex-direction: column;
     padding:0 30px;
 }
 
-.input{
+.reg-input{
     display:flex;
     flex-direction: column;
     padding:0 30px;

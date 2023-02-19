@@ -19,6 +19,7 @@ import passport from 'passport';
 import passportLocalMongoose from'passport-local-mongoose';
 
 
+
 const app = express();
 mongoose.set('strictQuery', false);
 
@@ -62,6 +63,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    course:{
+      type: String,
+        required: true
+    }
 
 });
 
@@ -98,6 +103,49 @@ app.get('/teams', (req,res) =>{
   res.render('teams');
 });
 
+app.get('/registration', (req,res) =>{
+  res.render('registration');
+});
+
+app.get('/login', (req,res) =>{
+  res.render('login');
+});
+app.post("/registration", function(req, res){
+
+  User.register({username: req.body.username}, req.body.password, function(err, user){
+    if (err) {
+      console.log(err);
+      res.redirect("/registration");
+    } else {
+      passport.authenticate("local")(req, res, function(){
+        res.redirect("/");
+      });
+    }
+  });
+
+});
+app.post("/login", function(req, res){
+
+  const user = new User({
+    username: req.body.email,
+    password: req.body.password,
+    
+    
+
+    
+  });
+
+  req.login(user, function(err){
+    if (err) {
+      console.log(err);
+    } else {
+      passport.authenticate("local")(req, res, function(){
+        res.redirect("/");
+      });
+    }
+  });
+
+});
 
 io.on("connection", (socket) => {
     console.log(io.of("/").adapter);
@@ -152,4 +200,4 @@ io.on("connection", (socket) => {
   
 
 // listen port 
-server.listen(3000, () => console.log("app is running at port 3000"));
+server.listen(4000, () => console.log("app is running at port 4000"));

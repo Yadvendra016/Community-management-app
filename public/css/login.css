@@ -4,13 +4,13 @@ body{
     background-color: #03254c;
 }
 
-img{
+.login-img{
     margin: 0 20px;
     width:50px;
     height:50px;
 }
 
-.navbar-container{
+.login-navbar-container{
     font-family:"Poppins","sans-serif";
     display: flex;
     flex-direction: row;
@@ -21,23 +21,23 @@ img{
     align-items: center;
 }
 
-.heading{
+.login-heading{
     color:#16227c;
     font-size:25px;
     margin:0;
 }
 
-.main-container{
+.login-main-container{
     display:flex;
 }
 
-.main-container img{
+.login-main-container img{
     width:500px;
     height:450px;
     margin:100px 0px 0px 220px ;
 }
 
-.main{
+.login-main{
     position:absolute;
     left:60%;
     margin-top:100px;
@@ -48,7 +48,7 @@ img{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.form{
+.login-form{
     background-color: white;
     font-family:"Roboto","sans-serif";
     padding:20px;
@@ -63,7 +63,7 @@ img{
     align-items: center;
 }
 
-.btn{
+.login-btn{
     color:white;
     background-color: #1167B1;
     border: 1px solid white;
@@ -77,32 +77,32 @@ img{
     margin-top:20px;
 }
 
-.btn:hover{
+.login-btn:hover{
 
     border:1px solid black;
     background-color: white;
     color:black;   
 }
 
-input{
+.login-email{
     width:200px;
     height:20px;
     border:1px solid #333;
     border-radius: 5px;
 }
 
-.input-container{
+.login-input-container{
     display:flex;
     flex-direction: row;
 }
 
-.label{
+.login-label{
     display:flex;
     flex-direction: column;
     padding:0 30px;
 }
 
-.input{
+.login-input{
     display:flex;
     flex-direction: column;
     padding:0 30px;
